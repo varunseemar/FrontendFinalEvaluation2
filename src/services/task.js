@@ -89,6 +89,24 @@ export const updateTask = async ({taskDetails,email,editTaskId})=>{
     }
 }
 
+export const updateTaskBoard = async ({selectedAssignee,currentEmail})=>{
+    try{
+        const email = selectedAssignee;
+        const response = await axios.put(`${BACKEND_URL}/task/editAll`, {
+            currentEmail,
+            email,
+        }, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        return response;
+    }
+    catch(err){
+        throw new Error(err.response.data)
+    }
+}
+
 export const updateChecklistItemStatus = async({taskId,checklistItemId,checked})=>{
     try{
       const response = await axios.patch(`${BACKEND_URL}/task/${taskId}/checklist/${checklistItemId}`,{checked});

@@ -86,6 +86,7 @@ const App = () => {
   }
   function closePeopleAddedModal(){
     setDisplayPeopleAddedModal(false);
+    setAddedToBoard(null);
     setIsModalOpen();
   }
   function openAddTaskModal(){
@@ -109,7 +110,7 @@ const App = () => {
     {isModalOpen === 'AddPeople' && displayAddPeopleModal
       ? <div className={styles.AddPeopleModal}> <AddPeopleModal openPeopleAddedModal={openPeopleAddedModal} setAddedToBoard={setAddedToBoard} closeAddPeopleModal={closeAddPeopleModal} displayAddPeopleModal={displayAddPeopleModal} /> </div> 
       : ""}
-    {isModalOpen === 'PeopleAdded' && displayPeopleAddedModal
+    {isModalOpen === 'PeopleAdded' && displayPeopleAddedModal && addedToBoard !== null
       ? <div className={styles.PeopleAddedModal}> <PeopleAddedModal addedToBoard={addedToBoard} closePeopleAddedModal={closePeopleAddedModal} displayPeopleAddedModal={displayPeopleAddedModal} /> </div> 
       : ""}
     {isModalOpen === 'AddTask' && displayAddTaskModal

@@ -42,8 +42,7 @@ const fetchEmails = async () =>{
         if(emails?.data?.allEmails) 
         {
             const currentEmail = localStorage.getItem('email');
-            const assignedEmails = assignee.map(item => item.assignee);
-            const filteredEmails = emails.data.allEmails.filter(email => email !== currentEmail && !assignedEmails.includes(email));
+            const filteredEmails = emails.data.allEmails.filter(email => email !== currentEmail);
             setAllEmails(filteredEmails);
         }
     }
