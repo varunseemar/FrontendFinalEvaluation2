@@ -39,8 +39,8 @@ const Board = ({openDeleteModal,setDeleteTaskId,setEditTaskId,setEditTask,handle
       },
     }));
   };
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1)
+  function capitalizeFirstLetter(string){
+    return string?.charAt(0)?.toUpperCase() + string?.slice(1)
   }
   function formatDate(){
     const date = new Date();

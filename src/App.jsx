@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './styles/App.module.css'
@@ -32,6 +32,7 @@ const App = () => {
   const [isModalOpen,setIsModalOpen] = useState();
   const [refresh,setRefresh] = useState(0);
   const [addedToBoard,setAddedToBoard] = useState(null);
+  const navigate = useNavigate();
 
   const handleRefresh = ()=>{
     setRefresh(refresh+1);
@@ -97,6 +98,12 @@ const App = () => {
     setDisplayAddTaskModal(false);
     setIsModalOpen();
   }
+
+  useEffect(()=>{
+    if(!localStorage.getItem('email')){
+      navigate('/Login');
+    }
+  },[])
 
   return(
   <>
